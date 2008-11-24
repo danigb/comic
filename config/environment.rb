@@ -30,7 +30,8 @@ Rails::Initializer.run do |config|
 
   config.gem "paperclip"
   config.gem "liquid"
-  config.gem "jrails", :source => "http://ennerchi.googlecode.com/svn/trunk/plugins/jrails"
+  #didnt work!
+  #config.gem "jrails", :source => "http://ennerchi.googlecode.com/svn/trunk/plugins/jrails"
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.

@@ -1,0 +1,30 @@
+<h1>Layouts</h1>
+
+<% if @layout.new_record? -%>
+  <div>
+    <h1>Create new layout</h1>
+    <% form_for :layout, @layout, :url => {:action => 'create_layout'} do |f| -%>
+      <label>name:</label><%= f.text_field :name %>
+    <% end -%>
+  </div>
+<% else -%>
+  <div>
+    <h1>Edit '<%= @layout.name %>' layout</h1>
+    <% form_for :layout, @layout, :url => {:action => 'save_layout', :id => @layout.id} do |f| -%>
+      <label>name:</label><%= f.text_field :name %><br/>
+      <label>layout:</label><%= f.collection_select(:layout_id, Layout.find(:all), :id, :name, {:include_blank => true}) %><br/>
+      <label>content:</label><%= f.text_area :content %><br/>
+      <%= f.submit 'save' %>
+    <% end -%>
+  </div>
+<% end -%>
+<table>
+  <thead><tr>
+      <td>Name</td>
+  </tr></thead>
+  <tbody>
+    <% for layout in @layouts  -%>
+      <tr><td><%= link_to layout.name, :id => layout %></td></tr>
+    <% end -%>
+  </tbody>
+</table>
